@@ -1,0 +1,351 @@
+{% extends "matricula/base.html" %}
+
+{% block content %}
+
+<div class="matricula" lang="es">
+
+    <form method="post" action="http://127.0.0.1:8000/matricula/" enctype="multipart/form-data"> {% csrf_token %}
+
+        <p>
+
+            Se informa que para el proceso de matrícula en la Universidad de San José, Puntarenas, se deben realizar los siguientes pasos:<br>
+
+            <ol>
+                <li>Puede realizar el pago de matrícula y materias por los siguientes medios: Banco de Costa Rica o Banco Nacional</li>
+
+                <li>Completar el presente formulario de Pre-Matrícula</li>
+                <li>Incluir los requisitos de ingreso
+
+                    <ul>
+
+                        <li>Primeros Ingresos deben incluir: 
+                            
+                            <ul>
+
+                                <li>Copia de cédula vigente (ambos lados)</li>
+                                <li>Copia del último título académico obtenido</li>
+                                <li>Foto tipo pasaporte (se puede incluir foto reciente tomada por el celular con buena resolución)</li>
+
+                            </ul>
+      
+                    </ul>
+
+                </li>
+                <li>Incluir comprobante de pago</li>
+                <li>Consultas de horarios, cupos y precios al TEL.2664-6000 / 2664-3838 o también al WhatsApp  6424-6994 / 8533-4574 / 6100-8823 o a los siguientes links:<br><br>
+
+                    <a href="https://wa.me/50664246994">ASESORES ACADEMICOS</a><br>
+                    <a href="https://wa.me/50685334574">REGISTRO</a><br>
+                        <a href="https://wa.me/50661008823">FINANZAS</a></li>
+
+            </ol>
+
+        </p><br>
+
+
+
+
+        <div class="custom-control custom-switch">
+
+            <input type="checkbox" class="custom-control-input" id="estudianteRegular">
+            <label class="custom-control-label" for="estudianteRegular"><b>Estudiante Regular (Haz clic si eres estudiante regular, y ya has matriculado previamente con la Universidad)</b></label>
+
+        </div>
+
+          <br><br>
+
+        <div class="form-row">
+
+            <div class="form-group col-md-3">
+
+                <label for="Nombre">Nombre</label>
+                <input type="text" class="form-control" id="Nombre" required>
+           
+            </div>
+
+            <div class="form-group col-md-3">
+
+                <label for="PrimerApellido">Primer Apellido</label>
+                <input type="text" class="form-control" id="PrimerApellido" required>
+           
+            </div>
+
+            <div class="form-group col-md-3">
+
+                <label for="SegundoApellido ">Segundo Apellido</label>
+                <input type="text" class="form-control" id="SegundoApellido">
+           
+            </div>
+
+            <div class="form-group col-md-3" id="NacionalidadMain">
+
+                <label for="Nacionalidad">Nacionalidad</label>
+                <input type="text" class="form-control" id="Nacionalidad" placeholder="Costarricense" required>
+           
+            </div>
+
+        </div>
+
+        <div class="form-row">
+
+            <div class="form-group col-md-6">
+
+              <label for="correo">Correo Electrónico</label>
+              <input type="email" class="form-control" id="correo" placeholder="nombre@ejemplo.com" required>
+
+            </div>
+
+            <div class="form-group col-md-6">
+
+              <label for="cedula">Cédula de Identidad</label>
+              <input type="text" class="form-control" id="cedula"  pattern="[0-9]{1}-[0-9]{4}-[0-9]{4}" placeholder="X-XXXX-XXXX" required>
+
+            </div>
+
+          </div>
+
+        <div class="form-row">
+
+            <div class="form-group col-md-4" id="provinciaMain">
+
+                <label for="provincia">Provincia</label>
+                <input type="text" class="form-control" id="provincia" placeholder="Puntarenas" required>
+    
+            </div>
+
+            <div class="form-group col-md-4" id="cantonMain">
+
+            <label for="canton">Cantón</label>
+            <input type="text" class="form-control" id="canton" placeholder="Puntarenas" required>
+
+            </div>
+
+            <div class="form-group col-md-4" id="distritoMain">
+
+                <label for="distrito">Distrito</label>
+                <input type="text" class="form-control" id="distrito" placeholder="El Roble" required>
+    
+            </div>
+
+        </div>
+
+        <div class="form-group" id="direccionMain">
+
+            <label for="direccion">Dirección Exacta</label>
+            <input type="text" class="form-control" id="direccion" required>
+
+        </div>
+
+        <div class="form-row">
+
+            <div class="form-group col-md-3" id="telMain">
+
+            <label for="tel">Teléfono</label>
+            <input type="tel" class="form-control" id="tel" pattern="[0-9]{4}-[0-9]{4}" placeholder="1234-5678" required>  
+
+            </div>
+
+            <div class="form-group col-md-3" id="celMain">
+
+                <label for="cel">Celular</label>
+                <input type="tel" class="form-control" id="cel" pattern="[0-9]{4}-[0-9]{4}" placeholder="1234-5678">  
+    
+            </div>
+
+            <div class="form-group col-md-3" id="dobMain">
+
+                <label for="dob">Fecha de Nacimiento</label>
+                <input type="date" class="form-control" id="dob" required> 
+        
+            </div>
+
+            <div class="form-group col-md-3" id="estadoCivilMain">
+
+                <label for="estadoCivil">Estado Civil</label>
+
+                <select class="custom-select">
+                    <option value="1" selected>Soltero (a)</option>
+                    <option value="2">Casado (a)</option>
+                    <option value="3">Unión Libre</option>
+                    <option value="4">Divorciado (a)</option>
+                    <option value="5">Viudo (a)</option>
+                  </select>
+        
+            </div>
+
+        </div>
+
+        <div class="form-row">
+
+            <div class="custom-file" id="fotoCedulaMain">
+
+                <input type="file" class="custom-file-input" id="fotoCedula" lang="es" accept="image/*,.pdf" required>
+                <label class="custom-file-label" for="fotoCedula">Copia de cédula vigente (ambos lados)</label>
+
+            </div>
+
+        </div>
+
+        <br>
+
+        <div class="form-row">
+
+            <div class="custom-file" id="fotoTituloMain">
+
+                <input type="file" class="custom-file-input" id="fotoTitulo" lang="es" accept="image/*,.pdf" required>
+                <label class="custom-file-label" for="fotoTitulo">Copia del último título académico obtenido</label>
+
+            </div>
+
+        </div>
+
+        <br>
+
+        <div class="form-row">
+
+            <div class="custom-file" id="fotoPasaporteMain">
+
+                <input type="file" class="custom-file-input" id="foto" lang="es" accept="image/*,.pdf" required>
+                <label class="custom-file-label" for="foto">Foto tipo pasaporte</label>
+
+            </div>
+
+        </div>
+
+        <br>
+
+        <div class="form-row">
+
+            <div class="form-group col-md-4" id="GradoMain">
+
+                <label for="Grado">Nivel o Grado que desea Cursar</label>
+
+                <select class="custom-select">
+                    <option value="1">Curso Libre</option>
+                    <option value="2">Técnico</option>
+                    <option value="3">Diplomado</option>
+                    <option value="4">Bachillerato</option>
+                    <option value="5">Licenciatura</option>
+                    <option value="5">Maestría</option>
+                    <option value="5">Experto Universitario (Máster Titulación Propia)</option>
+                  </select>
+    
+            </div>
+
+            <div class="form-group col-md-4" id="CarreraMain">
+
+            <label for="Carrera">Carrera a Matricular</label>
+            <input type="text" class="form-control" id="Carrera" placeholder="Administración de Empresas" required>
+
+            </div>
+
+            <div class="form-group col-md-4" id="CantidadMateriasMain">
+
+                <label for="CantidadMaterias">Cantidad de Materias a Matricular</label>
+
+                <select class="custom-select">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+    
+            </div>
+
+        </div>
+
+        <div class="form-group" id="listaCursosMain">
+
+            <label for="listaCursos">Nombre de los CURSOS O MATERIAS A MATRICULAR</label>
+            <input type="text" class="form-control" id="listaCursos" placeholder="contabilidad 1 lunes 6-9 pm, matemática basica martes 8-10 am" required>
+
+        </div>     
+        
+        <div class="form-row">
+
+            <div class="custom-file" id="comprobantePagoMain">
+
+                <input type="file" class="custom-file-input" id="comprobantePago" lang="es" accept="image/*,.pdf" required>
+                <label class="custom-file-label" for="comprobantePago">Adjuntar Comprobante de Pago</label>
+
+            </div>
+
+        </div>
+
+        <h4 class="text-center">
+
+            <br>CONSENTIMIENTO INFORMADO
+
+        </h4>
+
+        <p class="text-center">
+            <br><B>LEY DE PROTECCIÓN DE LA PERSONA FRENTE AL TRATAMIENTO DE SUS DATOS PERSONALES</B><br><br>
+
+            DOY FE QUE CONOZCO Y ACEPTO QUE SEGÚN ART.5.1 DE LA LEY N°. 8968:<br><br>
+
+            <small>
+                A) DE LA EXISTENCIA DE UNA BASE DE DATOS MANEJADA POR UNIVERSIDAD DE SAN JOSÉ.
+                B) DE LOS FINES QUE PERSIGUEN CON LA RECOLECCIÓN DE ESTOS DATOS.
+                C) DE LOS DESTINATARIOS DE LA INFORMACIÓN, ASÍ COMO QUIÉNES PODRÁN CONSULTARLA.
+                D) DEL CARÁCTER OBLIGATORIO O FACULTATIVO DE SUS RESPUESTAS A LA PREGUNTA QUE SE LE FORMULA DURANTE LA RECOLECCIÓN DE LOS DATOS.
+                E) DEL TRATAMIENTO QUE SE DARÁ A LOS DATOS SOLICITADOS.
+                F) DE LAS CONSECUENCIAS DE LA NEGATIVA A SUMINISTRAR LOS DATOS.
+                G) DE LA POSIBILIDAD DE EJERCER LOS DERECHOS QUE LA LEY NO. 8968 ME ASISTEN.
+                H) DE LA IDENTIDAD Y DIRECCIÓN DEL RESPONSABLE DE LA ADMINISTRACIÓN DE LA BASE DE DATOS.<br><br> 
+
+                AUTORIZO EXPRESAMENTE A LAS EMPRESA EN MENCIÓN PARA QUE CADA VEZ QUE SEA REQUERIDO SE RECOPILE, PROCESE, TRANSFIERA Y COMPARTA MI INFORMACIÓN PERSONAL  
+                (TOTALES O ESPECÍFICOS), SEAN DATOS PERSONALES DE ACCESO IRRESTRICTO O DE ACCESO RESTRINGIDO, PERMITIENDO DE CONFORMIDAD CON LA LEY NO.8968, 
+                LEY PROTECCIÓN DE LA PERSONA FRENTE AL TRATAMIENTO DE SUS DATOS PERSONALES.<br><br>
+
+            </small>
+
+        </p>
+
+        <h4 class="text-center">
+
+            ACEPTACIÓN DE LAS POLÍTICAS DE MATRICULA
+
+        </h4>
+
+        <p class="text-center">
+
+            <small>
+
+                <br>POR ESTE MEDIO ACEPTO QUE CONOZCO Y ACEPTO TODAS LAS POLÍTICAS DE LA INSTITUCIÓN EN CUANTO A PAGOS Y DISPOSICIONES ACADÉMICAS Y ADMINISTRATIVAS. 
+                ACEPTANDO LA  CANCELACIÓN DEL TOTAL DEL CURSO  O CURSOS A MATRICULAR SEA POR MEDIO DE DEPOSITO-TRANSFERENCIA, TARJETA DE DÉBITO O CRÉDITO  
+                U OTRO MEDIO QUE LA INSTITUCIÓN PONGA A DISPOSICIÓN, A REALIZARLO EN LAS CUENTAS CORRESPONDIENTES CUMPLIENDO OBLIGATORIAMENTE CON LAS FECHAS DE 
+                PAGO ESTABLECIDAS POR LA INSTITUCIÓN EN (CASO DE HACER USO DE FINANCIAMIENTO). PARA ESTE CASO EN PARTICULAR LA INSTITUCIÓN LE ESTA RESERVANDO UN ESPACIO, 
+                Y QUE DE NO PRESENTARSE A LAS LECCIONES EN LINEA "EN LAS DISTINTAS PLATAFORMAS TECNOLÓGICAS CON QUE CUENTA LA UNIVERSIDAD, AUTORIZO DE LA MISMA MANERA 
+                A LA INSTITUCIÓN A QUE SE ME COBRE EL MONTO TOTAL A PAGAR POR EL CURSO O CURSOS ELEGIDOS. ACEPTO QUE AL ESTAR MATRICULANDO BAJO LA PROMOCIÓN DE MATRICULA 
+                SOLIDARIA PARA EL IIC-MAYO (DONDE LA UNIVERSIDAD ESTA OTORGANDO GRANDES BENEFICIOS POR MEDIO DE BECAS EN MATRICULA Y MATERIAS) DEBO CANCELAR EL MONTO 
+                CORRESPONDIENTE DE LOS CURSOS MATRICULADOS. NO SE APLICA LA DEVOLUCIÓN DE DINERO BAJO NINGÚN CONCEPTO.
+
+            </small>
+
+        </p>
+
+        <div class="form-group">
+
+            <div class="form-check">
+                
+            <input class="form-check-input" type="checkbox" id="acepto" required>
+            <label class="form-check-label" for="acepto"><b>ACEPTO LOS TÉRMINOS Y CONDICIONES</b></label>
+
+            </div>
+
+        </div>
+
+        <div class="form-row">
+
+            <button type="submit" class="btn btn-primary btn-lg btn-block">MATRICULAR!</button>
+
+        </div>
+
+        <br>
+  
+    </form>
+
+</div>
+
+{% endblock %}
